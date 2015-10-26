@@ -167,7 +167,9 @@ class Manager(object):
             if i >= STAT_SEND_LIMIT:
                 send_data(r)
                 r.clear()
-        send_data(r)
+            i = 0
+        if len(r) > 0:
+            send_data(r)
         self._statistics.clear()
 
     def _send_control_data(self, data):
